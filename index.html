@@ -47,6 +47,10 @@
             --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         * {
             box-sizing: border-box;
             margin: 0;
@@ -75,6 +79,7 @@
             border-radius: var(--radius);
             box-shadow: var(--shadow-sm);
             border: 1px solid var(--border);
+            scroll-margin-top: 20px; /* Offset for smooth scroll */
         }
 
         /* --- TYPOGRAPHY --- */
@@ -119,7 +124,7 @@
             text-align: center;
             color: #64748b;
             font-size: 1.125rem;
-            margin-bottom: 40px;
+            margin-bottom: 25px;
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
@@ -147,6 +152,39 @@
         .hero {
             padding: 60px 0 40px 0;
             background: linear-gradient(to bottom, #ffffff, var(--bg-light));
+        }
+
+        /* NEW HERO NAVIGATION */
+        .hero-nav {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 35px;
+            flex-wrap: wrap;
+        }
+
+        .nav-link {
+            background: rgba(255,255,255,0.8);
+            border: 1px solid var(--border);
+            padding: 8px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            color: var(--secondary);
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .nav-link:hover {
+            background: var(--white);
+            color: var(--primary);
+            border-color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(37, 99, 235, 0.15);
         }
 
         .calculator-card {
@@ -509,6 +547,10 @@
             .calculator-card { padding: 25px; }
             .tabs { flex-wrap: wrap; }
             .tab-btn { flex: 1 1 30%; font-size: 0.85rem; text-align: center; }
+            
+            /* Responsive adjustments for nav */
+            .hero-nav { gap: 8px; }
+            .nav-link { padding: 6px 14px; font-size: 0.8rem; }
         }
     </style>
 </head>
@@ -520,6 +562,19 @@
             <h1>Bonus Tax Calculator</h1>
             <p class="subtitle">Find out why your bonus was taxed so much. <br>Instant AI-Powered estimates for USA, UK, and Canada.</p>
             
+            <!-- RESPONSIVE SECTION BUTTONS -->
+            <nav class="hero-nav">
+                <a href="#how-it-works" class="nav-link">
+                    <span>🔍</span> How It Works
+                </a>
+                <a href="#country-guides" class="nav-link">
+                    <span>🌍</span> Tax Rules
+                </a>
+                <a href="#faq" class="nav-link">
+                    <span>❓</span> Common FAQs
+                </a>
+            </nav>
+
             <div class="calculator-card">
                 <div class="ai-badge">
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M21,9L17,5V8H10V10H17V13M7,11L3,15L7,19V16H14V14H7V11Z" /></svg>
@@ -624,7 +679,7 @@
     <main class="container">
         
         <!-- EXPLANATION SECTION -->
-        <section class="section">
+        <section class="section" id="how-it-works">
             <h2>Why Is My Bonus Taxed So Much?</h2>
             <p>It is one of the most frustrating moments for an employee: you work hard, earn a $5,000 bonus, and when the check arrives, it looks more like $3,000. <strong>You didn't actually lose that money forever</strong>, but the tax withholding rules make it feel that way.</p>
             <p>The "Bonus Tax" isn't usually a separate tax. It is simply a different method of <strong>withholding</strong> by your employer. Payroll systems generally assume that if you received a large check this week, you will earn that much <em>every</em> week, which artificially pushes you into a much higher estimated tax bracket.</p>
@@ -638,7 +693,7 @@
         </section>
 
         <!-- COUNTRY BREAKDOWNS -->
-        <section class="section">
+        <section class="section" id="country-guides">
             <h2 id="usa-tax">🇺🇸 Bonus Tax in the USA</h2>
             <p>The IRS considers bonuses "supplemental wages." Employers typically use the <strong>Percentage Method</strong>, withholding a flat <strong>22% for Federal Income Tax</strong> on bonuses under $1 million.</p>
             <p>However, that 22% is just the start. You must add:</p>
@@ -670,7 +725,7 @@
         </section>
 
         <!-- FAQ SECTION -->
-        <section class="section">
+        <section class="section" id="faq">
             <h2>Frequently Asked Questions</h2>
             <div class="faq-list">
                 <div class="faq-item">
@@ -846,7 +901,7 @@
             parent.classList.toggle('active');
         }
     </script>
-    <footer style="margin-top:40px; padding:20px; text-align:center; font-size:14px; background:#f5f5f5;">
+    <footer style="margin-top:40px; padding:20px; text-align:center; font-size:14px; background:#000000;">
   <a href="about-us.html">About Us</a> |
   <a href="privacy-policy.html">Privacy Policy</a> |
   <a href="contact-us.html">Contact Us</a>
